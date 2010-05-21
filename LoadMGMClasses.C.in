@@ -1,0 +1,6 @@
+{
+  if(!TClass::GetDict("MGMMuonVeto")) {
+    gROOT->ProcessLine(".L @CWD@/libMGDO@THISSRCDIR@.so");
+    gROOT->ProcessLine(".include \"@CWD@\"");
+  }
+}
