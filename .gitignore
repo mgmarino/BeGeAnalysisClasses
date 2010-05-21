@@ -2,3 +2,10 @@
 *.dylib
 *.a
 *.o
+autom4te.cache*
+config.log
+config.status
+.depend
+*DICT.C
+*DICT.h
+LoadMGMClasses.C
