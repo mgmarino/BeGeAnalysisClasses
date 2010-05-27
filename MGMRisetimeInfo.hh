@@ -8,18 +8,29 @@ class MGMRisetimeOneChannelInfo
 {
   
   public:
-    MGMRisetimeOneChannelInfo() : start(0), stop(0), risetime(0), maximum(0), minimum(0) {}
+    MGMRisetimeOneChannelInfo() : start(0), stop(0), 
+                                  risetime(0), 
+                                  maximum(0), minimum(0),
+                                  max_point(0), min_point(0) {}
     MGMRisetimeOneChannelInfo(Double_t aStart, Double_t aStop, 
-                              Double_t aRT, Double_t amax,
-                              Double_t amin) : 
-      start(aStart), stop(aStop), risetime(aRT),
-      maximum(amax), minimum(amin) {}
+                              Double_t aRT, 
+                              Double_t amax, Double_t amin, 
+                              UInt_t max_pt, UInt_t min_pt) : 
+      start(aStart), stop(aStop), 
+      risetime(aRT),
+      maximum(amax), minimum(amin), 
+      max_point(max_pt), min_point(min_pt) {}
+
+  public:
     Double_t start; 
     Double_t stop; 
     Double_t risetime; 
     Double_t maximum; 
     Double_t minimum; 
-  ClassDef(MGMRisetimeOneChannelInfo,2)
+    UInt_t max_point; 
+    UInt_t min_point; 
+
+  ClassDef(MGMRisetimeOneChannelInfo,3)
 };
 
 class MGMRisetimeInfo: public TObject
