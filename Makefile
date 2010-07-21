@@ -10,7 +10,7 @@ include $(MGDODIR)/buildTools/BasicROOTMakefile
 
 ifneq ($(SOSUFFIX),so)
 shared::
-	@ln -s $(SHLIB) $(basename $(SHLIB)).so
+	@if [ ! -f $(basename $(SHLIB)).so ]; then ln -s $(SHLIB) $(basename $(SHLIB)).so; fi
 endif
 
 clean::
