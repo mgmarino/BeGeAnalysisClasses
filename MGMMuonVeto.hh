@@ -11,6 +11,8 @@ class MGMMuonVeto: public TObject
     std::vector<MGWaveformRegion> regions;
     bool IsInVetoRegion(size_t);
     bool RangeIsInVetoRegion(size_t beginning, size_t end);
+  public:
+    size_t GetNumberOfRegions() { return regions.size(); }
     
   ClassDef(MGMMuonVeto,1)
 };
