@@ -1,6 +1,6 @@
 {
   if(!TClass::GetDict("MGMMuonVeto")) {
-    gSystem->Load("@CWD@/libMGDO@THISSRCDIR@");
+    gSystem->Load("@CWD@/lib@THISSRCDIR@");
     gROOT->ProcessLine(".include \"@CWD@\"");
   }
 }

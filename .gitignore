@@ -9,3 +9,4 @@ config.status
 *DICT.C
 *DICT.h
 LoadMGMClasses.C
+buildTools/config.mk
