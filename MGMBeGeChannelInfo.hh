@@ -23,9 +23,11 @@ class MGMBeGeChannelInfo: public TObject
   public:
     std::vector<MGMBeGeOneChannelInfo> channels;
     MGMBeGeOneChannelInfo& GetChannel(size_t i) { return channels[i]; } 
+    MGMBeGeOneChannelInfo& operator[](size_t i) { return channels[i]; } 
     size_t GetNumChannels() { return channels.size(); }
+    size_t size() { return channels.size(); }
     
-  ClassDef(MGMBeGeChannelInfo,1)
+  ClassDef(MGMBeGeChannelInfo,2)
 };
 
 #endif /* _MGMBeGeChannelInfo_hh_ */
