@@ -17,6 +17,12 @@ case "${MYHOST}" in
   SOFLAGS="-dynamiclib"
   MGDOLIBEXTSHARED=dylib
 esac
+host_cpu=`uname -m`
+case "${host_cpu}" in
+  x86_64*)
+  CXXFLAGS="$CXXFLAGS -fPIC"
+  echo "Compiling on an x86_64 chipset...Setting -fPIC flag."
+esac
 
 #Find root
 echo ""
@@ -27,6 +33,7 @@ ROOT_PATH(5.20,, AC_MSG_ERROR(ROOT not found!))
 CWD=`pwd`
 THISSRCDIR=`basename $CWD`
 AC_SUBST(CWD)
+AC_SUBST(CXXFLAGS)
 AC_SUBST(THISSRCDIR)
 AC_SUBST(SOFLAGS)
 AC_SUBST(MGDOLIBEXTSHARED)
