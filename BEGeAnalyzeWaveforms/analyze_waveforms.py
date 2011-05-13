@@ -199,7 +199,11 @@ def process_waveforms_in_file(input_file_name, output_file_name):
             muon_veto.regions.push_back(an_event)
 
         # All channels
-        for chan_num in (0,1,2,4,5):
+        all_channels = [0,1,2,4,5]
+        if event.GetNWaveforms() <= 4: 
+            all_channels = [0,1,2]
+        for chan_num in all_channels:
+            if chan_num >= event.GetNWaveforms(): continue
             baseline.SetBaselineTime(init_baseline_time) # 250 mus
             wf = event.GetWaveform(chan_num)
             extremum.SetFindMaximum(True)
@@ -227,7 +231,11 @@ def process_waveforms_in_file(input_file_name, output_file_name):
               ROOT.MGMBeGeOneChannelInfo(baseline_value, max_value, min_value, avg_value))
         
         # Preamp trace channels
-        for chan_num in (4,5):
+        preamp_channels = [4,5]
+        if event.GetNWaveforms() <= preamp_channels[0]: 
+            preamp_channels = []
+            
+        for chan_num in preamp_channels:
             wf = event.GetWaveform(chan_num)
 
             # First do a bandpass filter to grab important values
