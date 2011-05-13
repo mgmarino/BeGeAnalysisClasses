@@ -10,3 +10,4 @@ config.status
 *DICT.h
 LoadMGMClasses.C
 buildTools/config.mk
+*.DS_Store
